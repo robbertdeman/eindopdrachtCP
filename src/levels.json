@@ -1,0 +1,27 @@
+{
+  "level0":[
+    {"multiplier":1, "xSpeed":1, "ySpeed": 4, "x":100 , "y":350 },
+    {"multiplier":1, "xSpeed":1, "ySpeed": 4, "x":300 , "y":350 },
+    {"multiplier":1, "xSpeed":1, "ySpeed": 4, "x":500 , "y":350 }
+  ],
+  "level1":[
+    {"multiplier":2, "xSpeed":1, "ySpeed": 4, "x":100 , "y":350 },
+    {"multiplier":2, "xSpeed":1, "ySpeed": 4, "x":300 , "y":350 }
+  ],
+  "level2":[
+    {"multiplier":2, "xSpeed":1, "ySpeed": 4, "x":100 , "y":350 },
+    {"multiplier":2, "xSpeed":1, "ySpeed": 4, "x":500 , "y":350 },
+    {"multiplier":1, "xSpeed":1, "ySpeed": 4, "x":200 , "y":350 },
+    {"multiplier":1, "xSpeed":1, "ySpeed": 4, "x":300 , "y":350 },
+    {"multiplier":1, "xSpeed":1, "ySpeed": 4, "x":400 , "y":350 }
+  ],
+  "level3":[
+    {"multiplier":4, "xSpeed":1, "ySpeed": 4, "x":100 , "y":350 },
+    {"multiplier":4, "xSpeed":1, "ySpeed": 4, "x":600 , "y":350 },
+    {"multiplier":2, "xSpeed":1, "ySpeed": 4, "x":300 , "y":350 }
+  ],
+  "level4":[
+    {"multiplier":8, "xSpeed":1, "ySpeed": 4, "x":100 , "y":350 },
+    {"multiplier":8, "xSpeed":1, "ySpeed": 4, "x":400 , "y":350 }
+  ]
+}
