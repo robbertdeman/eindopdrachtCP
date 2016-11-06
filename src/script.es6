@@ -29,7 +29,7 @@ class Controller {
                 document.getElementById("demo").innerHTML = this.responseText;
             }
         };
-        xhttp.open("GET", "http://localhost:3000/getHighscores?highscore="+ score +"&name="+ name, true);
+        xhttp.open("GET", "http://localhost:4000/getHighscores?highscore="+ score +"&name="+ name, true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send();
     }
