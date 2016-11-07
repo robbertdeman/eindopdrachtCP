@@ -28,7 +28,7 @@ class Controller {
                 this.responseText;
             }
         };
-        xhttp.open("GET", "http://localhost:4000/getHighscores?onlyShow=false&highscore="+ score +"&name="+ name, true);
+        xhttp.open("GET", "/getHighscores?onlyShow=false&highscore="+ score +"&name="+ name, true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send();
     }
@@ -40,7 +40,7 @@ class Controller {
                 contr.showHighscores(JSON.parse(this.responseText));
             }
         };
-        xhttp.open("GET", "http://localhost:4000/getHighscores?onlyShow=true");
+        xhttp.open("GET", "/getHighscores?onlyShow=true");
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send();
     }

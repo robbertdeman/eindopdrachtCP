@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 const app = express();
 
+app.use('/dist', express.static(__dirname + '/dist'));
+
 // Allow Cross-Origin requests, just leave this as is
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -34,6 +36,6 @@ app.get('/getHighscores', function(req, res){
     }
 });
 
-app.listen(3000, function () {
+app.listen(4000, function () {
     console.log('Example app listening on port 3000!');
 });
