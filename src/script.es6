@@ -16,29 +16,40 @@ class Controller {
         this.bullets = [];
         this.player.area(this.canvas.canvasValues);
         this.levels = require("./levels.json");
-        this.highscores = require("./highscores.json");
 
-        this.showHighscores();
+        this.getHighscores();
         this.gameSetup();
     }
 
     loadDoc(score, name) {
-        var xhttp = new XMLHttpRequest();
+        let xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("demo").innerHTML = this.responseText;
+                this.responseText;
             }
         };
-        xhttp.open("GET", "http://localhost:4000/getHighscores?highscore="+ score +"&name="+ name, true);
+        xhttp.open("GET", "http://localhost:4000/getHighscores?onlyShow=false&highscore="+ score +"&name="+ name, true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send();
     }
 
-    showHighscores() {
+    getHighscores() {
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                contr.showHighscores(JSON.parse(this.responseText));
+            }
+        };
+        xhttp.open("GET", "http://localhost:4000/getHighscores?onlyShow=true");
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send();
+    }
+
+    showHighscores(data) {
         let showScores = document.getElementById("highscores");
 
         //sorteert de scores op hoogste score
-        let sortedScores = this.sortResults("highscore", true);
+        let sortedScores = this.sortResults(data);
 
         //loopen door de gesorteerde scores
         sortedScores.forEach((o) => {
@@ -52,10 +63,9 @@ class Controller {
         });
     }
 
-    sortResults() {
-        return this.highscores.highscores.sort(function(a, b) {
+    sortResults(data) {
+        return data.highscores.sort(function(a, b) {
             return b.highscore - a.highscore;
-
         });
     }
 
@@ -101,6 +111,7 @@ class Controller {
 
                 //De score en naam wordt toegevoegd
                 this.loadDoc(this.player.score, name);
+                // location.reload();
             }
         });
     }
@@ -220,4 +231,4 @@ class Controller {
     }
 }
 
-new Controller();
+const contr = new Controller();

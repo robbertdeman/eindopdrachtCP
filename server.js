@@ -1,7 +1,7 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var fs = require('fs');
-var app = express();
+const express = require('express');
+const bodyParser = require('body-parser');
+const fs = require('fs');
+const app = express();
 
 // Allow Cross-Origin requests, just leave this as is
 app.use(function(req, res, next) {
@@ -20,10 +20,18 @@ app.get('/', function(req, res){
 app.get('/getHighscores', function(req, res){
     //haalt de highscore.json op en voegt de query eraan toe
     var obj = JSON.parse(fs.readFileSync('src/highscores.json', 'utf8'));
-    obj.highscores.push(req.query);
+    if (req.query.onlyShow == "false") {
+        var score = req.query;
+        delete score.onlyShow;
+        console.log(score);
+        obj.highscores.push(score);
+    }
     fs.writeFile('src/highscores.json', JSON.stringify(obj), function (err) {
         console.log(err);
     });
+    if (req.query.onlyShow == "true") {
+        res.send(obj);
+    }
 });
 
 app.listen(3000, function () {
