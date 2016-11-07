@@ -111,7 +111,7 @@ class Controller {
 
                 //De score en naam wordt toegevoegd
                 this.loadDoc(this.player.score, name);
-                // location.reload();
+                location.reload();
             }
         });
     }
